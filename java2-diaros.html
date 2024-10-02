@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8>
+	<meta name="viewport" content="width=device, initial-scale=1.0">
+	<title>Grade Checker</title>
+	<style>
+	    body {
+		    font-family: Arial, sans-serif;
+			max-width: 300px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		input, button {
+		    margin: 5px;
+			padding: 10px;
+			width: calc(100% - 22px);
+		}
+		button {
+		    background-color: #007BFF;
+			color: white;
+			border: none;
+		}
+		button:hover {
+		    background-color: #0056b3;
+		}
+	</style>
+</head>
+<body>
+    <h1>Grade Checker</h1>
+	<input type="number" id="score" placeholder="Enter Student Score" min="0" max="100">
+	<button onclick="checkGrade()">Check Grade</button>
+	<h2 id="result">Grade: </h2>
+	<script>
+	    function checkGrade() {
+		    const score = parseFloat(document.getElementById('score').value);
+			let grade;
+			
+			if (score >=90 && score <= 100) {
+			    grade = "A";
+			} else if (score >= 80) {
+			    grade = "B";
+			} else if (score >= 70) {
+			    grade = "C";
+			} else if (score >=60) {
+			    grade = "D";
+			} else if (score >=0) {
+			    grade = "F";
+			} else {
+			    grade = "Invalid score"; // For scores below 0
+			}
+			
+			document.getElementById('result').innerText = "Grade: " + grade;
+		}
+	</script>
+</body>
+</html>
